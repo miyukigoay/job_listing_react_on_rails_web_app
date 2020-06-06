@@ -1,0 +1,2 @@
+class RequirementsController < ApiController
+end
