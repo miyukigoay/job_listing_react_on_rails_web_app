@@ -1,0 +1,11 @@
+  {
+    "name": "list-of-jobs",
+    "engines": {
+      "node": "12.7.0"
+    },
+    "scripts": {
+      "build": "cd applicant && npm install && npm run build && cd ..",
+      "deploy": "cp -a applicant/build/. public/",
+      "postinstall": "npm run build && npm run deploy && echo 'Applicant built!'"
+    }
+  }
