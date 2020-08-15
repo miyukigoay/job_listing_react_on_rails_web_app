@@ -1,24 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple job listing web app using React on Rails and ActiveAdmin. The web app is deployed onto Heroku, and can be viewed here: https://joblisting-react-on-rails.herokuapp.com/
 
-Things you may want to cover:
 
-* Ruby version
+* Ruby version == 2.4.9
 
 * System dependencies
+    [refer to Gemfile]
 
 * Configuration
+    You will need a secrets.yml file in the config folder as required by Devise, which handles authentication for ActiveAdmin. Run this twice to generate two different secret keys for development and test.
 
-* Database creation
+    `bin/rake secret | pbcopy`
 
-* Database initialization
+    The secrets.yml file looks like this:
+    
+        ```
+        development:
+          secret_key_base: {YOUR_SECRET_KEY}
 
-* How to run the test suite
+        test:
+          secret_key_base: {YOUR_SECRET_KEY}
 
-* Services (job queues, cache servers, search engines, etc.)
+        production:
+          secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+        ```
 
-* Deployment instructions
+* App initialization
+    - Starting Rails: 
+        $ bin/rails s -p 3001
+    - Starting React:
+        $ yarn --cwd client start
 
-* ...
+
